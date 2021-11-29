@@ -1,15 +1,20 @@
-import React from "react";
+import { Fragment, useState } from "react";
 
 import CreatePage from "./pages/create-page.jsx";
 import OutputPage from "./pages/output-page.jsx";
 
 const App = () => {
+  const [editMode, setEditMode] = useState(true);
+
   return (
-    <>
-      <h2>react and redux project setup is completed.</h2>
-      {/* <CreatePage /> */}
-      <OutputPage />
-    </>
+    <Fragment>
+      <nav>
+        <button onClick={() => setEditMode(true)}>edit</button>
+        <button onClick={() => setEditMode(false)}>preview</button>
+      </nav>
+
+      {editMode ? <CreatePage /> : <OutputPage />}
+    </Fragment>
   );
 };
 
