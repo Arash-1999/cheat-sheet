@@ -2,6 +2,7 @@
   "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "rules": {
     "quotes": [1, "double"],
-    "react/prop-types": [0]
+    "react/prop-types": [0],
+    "no-param-reassign": [0]
   }
 }

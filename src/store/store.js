@@ -1,14 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-const testingReducer = (store, action) => {
-  switch (action.type) {
-    default:
-      return store;
-  }
-};
+import sheetReducer from "./sheetSlice";
 
 const store = configureStore({
-  reducer: testingReducer,
+  reducer: { sheet: sheetReducer },
 });
 
 export default store;
