@@ -6,15 +6,21 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const eslintWebpackPlugin = require("eslint-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // check mode is productin or not
 const isProduction = process.env.NODE_ENV == "production";
+
+// assign style loader depend on mode
+const style_loader = isProduction
+  ? MiniCssExtractPlugin.loader
+  : "style-loader";
 
 // main config object
 const config = {
   entry: {
     index: "./src/index.jsx",
-    vendor: ["react", "react-dom", "@emotion/styled"],
+    vendor: ["react", "react-dom", "@reduxjs/toolkit"],
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -22,6 +28,7 @@ const config = {
   },
   devServer: {
     open: true,
+    hot: true,
     host: "localhost",
   },
   module: {
@@ -44,7 +51,6 @@ const config = {
               ["@babel/preset-react", { runtime: "automatic" }],
             ],
             plugins: [
-              "@emotion",
               [
                 "module-resolver",
                 {
@@ -73,7 +79,30 @@ const config = {
       // styles
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          style_loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "tailwindcss",
+                    {
+                      purge: [
+                        "./src/**/*.html",
+                        "./src/**/*.js",
+                        "./src/**/*.jsx",
+                      ],
+                    },
+                  ],
+                  "autoprefixer",
+                ],
+              },
+            },
+          },
+        ],
       },
     ],
   },
@@ -87,6 +116,9 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
+
+    // add css handler plugin
+    config.plugins.push(new MiniCssExtractPlugin());
   } else {
     config.mode = "development";
   }

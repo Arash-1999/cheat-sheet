@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Nav setMode={setEditMode} />
+      <Nav editMode={editMode} setMode={setEditMode} />
 
       {editMode ? <CreatePage /> : <OutputPage />}
     </Fragment>
