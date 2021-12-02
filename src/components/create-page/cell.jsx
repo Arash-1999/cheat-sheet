@@ -16,7 +16,7 @@ const CellEditor = () => {
       </section>
 
       {/* output */}
-      <CellRender {...current} />
+      {current ? <CellRender {...current} /> : null}
     </Fragment>
   );
 };

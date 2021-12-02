@@ -12,7 +12,7 @@ const NodeEditor = () => {
   const dispatch = useDispatch();
   const current = useSelector(selectCurrentCell);
 
-  return (
+  return current ? (
     <ul>
       {current.nodes.map((item, i) => (
         <li key={i}>
@@ -32,7 +32,7 @@ const NodeEditor = () => {
         <button onClick={() => dispatch(addNode())}> + </button>
       </li>
     </ul>
-  );
+  ) : null;
 };
 
 export default NodeEditor;
