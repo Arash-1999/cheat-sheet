@@ -69,7 +69,7 @@ const Window = ({ close }) => {
               className="mx-2"
               type="checkbox"
               value={ordered}
-              onChange={(e) => setOrdered(e.taget.checked)}
+              onChange={(e) => setOrdered(e.target.checked)}
             />
           </label>
           <button
