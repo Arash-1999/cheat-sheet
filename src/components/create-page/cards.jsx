@@ -9,7 +9,7 @@ const Cards = () => {
   const cells = useSelector(selectCells);
 
   return (
-    <ul>
+    <ul className="flex items-stretch h-32 gap-3 p-3 overflow-x-auto">
       {cells.map((item) => (
         <ListItem key={item.id} id={item.id} title={item.title} />
       ))}
