@@ -1,15 +1,13 @@
 import { Fragment } from "react";
 
 import Nav from "cm/output-page/nav.jsx";
-import Cards from "cm/output-page/cards.jsx";
+import MasonaryGrid from "cm/output-page/masonary-grid.jsx";
 
 const OutputPage = () => {
   return (
     <Fragment>
       <Nav />
-      <main>
-        <Cards />
-      </main>
+      <MasonaryGrid />
     </Fragment>
   );
 };
