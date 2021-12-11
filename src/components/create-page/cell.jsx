@@ -7,7 +7,6 @@ import CellRender from "cm/cell-render.jsx";
 
 const CellEditor = () => {
   const current = useSelector(selectCurrentCell);
-  console.log(current.ordered);
 
   return (
     <section className="flex gap-8 p-4 flex-col md:flex-row">
