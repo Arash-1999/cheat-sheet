@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import min_max_finder from "utils";
@@ -57,12 +57,12 @@ const useMasonary = (cells) => {
 };
 
 // component
-const MasonaryGrid = () => {
+const MasonaryGrid = forwardRef((props, ref) => {
   const cells = useSelector(selectCells);
   const data = useMasonary(cells);
 
   return (
-    <main className="flex items-stretch gap-4 p-4 bg-indigo-100">
+    <main ref={ref} className="flex items-stretch gap-4 p-4 bg-indigo-100">
       {data.map((item, i) => (
         <article className="space-y-4 flex-1" key={i}>
           {item.map((cell) => (
@@ -72,6 +72,6 @@ const MasonaryGrid = () => {
       ))}
     </main>
   );
-};
+});
 
 export default MasonaryGrid;
