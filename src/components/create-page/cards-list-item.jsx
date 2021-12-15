@@ -10,7 +10,9 @@ const ListItem = ({ id, title }) => {
 
   return (
     <li className="flex flex-col text-center justify-evenly flex-shrink-0 border-2 border-indigo-600 rounded-lg shadow px-2 bg-indigo-100">
-      <h5 className="text-lg font-semibold text-gray-800">{title}</h5>
+      <h5 className="text-lg font-semibold text-gray-800">
+        {title.length > 25 ? `${title.slice(0, 22)}...` : title}
+      </h5>
       <span>
         <button
           className="text-red-500 rounded-full ring-2 p-1 mx-1 ring-red-500"
