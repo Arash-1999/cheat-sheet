@@ -10,12 +10,12 @@ const Nav = ({ target }) => {
         backgroundColor: "#E0E7FF",
         logging: false,
       }).then((canvas) => {
-        const data = canvas.toDataURL("application/x-pdf");
+        const data = canvas.toDataURL("image/png");
 
         setUrl(data);
       });
     }
-  }, [target]);
+  }, [target.current]);
 
   // button styles
   const styles =
