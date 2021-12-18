@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+  font-variant: normal !important;
+  -webkit-font-variant: normal !important;
+  font-variant-ligatures: none !important;
+  -webkit-font-variant-ligatures: none !important;
+
+  word-break: break-all;
+}
