@@ -1122,8 +1122,6 @@ video {
   --tw-blur: blur(8px);
 }
 
-/* fixture for overlapping text in output */
-
 main {
   font-variant: normal !important;
   -webkit-font-variant: normal !important;
